@@ -1,3 +1,8 @@
 <iw-app-layout>
-  <iw-journal-list [journals]="(journals | async) ?? undefined"/>
+  <mat-form-field class="mx-4" >
+    <mat-label>Search journals</mat-label>
+    <input matInput type="text" [formControl]="searchControl" />
+  </mat-form-field>
+
+  <iw-journal-list [journals]="(journals$ | async) ?? undefined"/>
 </iw-app-layout>
