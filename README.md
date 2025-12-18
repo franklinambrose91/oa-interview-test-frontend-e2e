@@ -2,6 +2,8 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.1.
 
+When you first clone this repository, run `npm install` to install the dependencies and `npx playwright install` to install the e2e testing framework.
+
 ## Development server
 
 To start a local development server, run:
@@ -48,8 +50,10 @@ ng test
 
 For end-to-end (e2e) testing, run:
 
+(front and back end will need to be running before tests can be run)
+
 ```bash
-ng e2e
+npm test
 ```
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
