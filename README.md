@@ -48,15 +48,45 @@ ng test
 
 ## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
+End-to-end tests validate the dashboard search functionality using Playwright and Cucumber.
 
-(front and back end will need to be running before tests can be run)
+### Prerequisites
+- Backend API running on `http://localhost:8080`
+- Frontend running on `http://localhost:4200`
 
+### Test Scenarios
+
+**Basic Search** (`e2e/features/search.feature`)
+- Search for existing journals by author name
+- Search for non-existent journals (empty results)
+- Case-insensitive search
+
+**Advanced Search** (`e2e/features/search-advanced.feature`)
+- Multiple matching results
+- Partial author name matching
+- Case-insensitive partial matching
+
+### Running Tests
+
+Run all tests:
 ```bash
 npm run e2e
 ```
+Run a specific feature:
+```bash
+npx cucumber-js e2e/features/search.feature
+npx cucumber-js e2e/features/search-advanced.feature
+```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+What Changed
+New Files:
+e2e/config/test-config.ts - Centralized configuration (URLs, timeouts, viewport settings)
+e2e/features/search-advanced.feature - Advanced search test scenarios
+
+Updated Files:
+e2e/pages/SearchPage.ts - Page Object for journal search functionality
+e2e/step_definitions/search.steps.ts - Step definitions for all test scenarios
+e2e/support/hooks.ts - Test setup/teardown with centralized configuration
 
 ## Additional Resources
 
